@@ -8,6 +8,6 @@ func (alwaysBadRequest) RoundTrip(*http.Request) (*http.Response, error) {
 	return &http.Response{StatusCode: http.StatusNotFound}, nil
 }
 
-func DoSomething() {
+func init() {
 	http.DefaultClient = &http.Client{Transport: alwaysBadRequest{}}
 }
